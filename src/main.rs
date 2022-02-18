@@ -1,4 +1,3 @@
-use anyhow::Result;
 use obws::{Client, requests::{Volume, SceneItemRender}};
 use tokio::sync::mpsc;
 use std::collections::HashMap;
@@ -10,6 +9,8 @@ use apcmini::{APCMini, LedState};
 // Load configuration helpers.
 mod config;
 use config::{DeckConfig, load_deck_config};
+
+pub type Result<T> = std::result::Result<T, Box<dyn std::error::Error + 'static>>;
 
 enum AudioSourceState {
     Muted,

@@ -14,7 +14,7 @@ pub struct DeckConfig {
     pub reactions: HashMap<u8, String>
 }
 
-pub fn load_deck_config() -> anyhow::Result<DeckConfig> {
+pub fn load_deck_config() -> crate::Result<DeckConfig> {
     // Load config file (config.yaml)
     let config: DeckConfig = serde_yaml::from_reader(std::fs::File::open("config.yaml")?)?;
     Ok(config)
